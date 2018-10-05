@@ -1,0 +1,20 @@
+Sequential and Concurrent Web Crawler in Go
+
+Usage:  go build findlinks.go
+        ./findlinks <url> [-depth=N]
+
+    <url> must contain http:// or https://
+    -depth=0 returns root URL
+    
+Web Crawler Timing Data
+
+Algorithm  | URL                                       |  Depth = 1 |  Depth = 2   Depth = 3
+-----------------------------------------------------------------------------------------
+Sequential | http://www.google.com                     |  12.85 s   |  736.19  s |   N/A
+Concurrent | http://www.google.com                     |  1.43 s    |  42.44   s |   N/A
+Sequential | https://cpe.calpoly.edu/faculty/husmith/  |  26.35 s   |  1016.56 s |   N/A
+Concurrent | https://cpe.calpoly.edu/faculty/husmith/  |  5.81 s    |  46.92   s |   N/A
+Sequential | http://www.dvhigh.net/                    |  59.013 s  |  1543.46 s |   N/A
+Concurrent | http://www.dvhigh.net/                    |  23.49 s   |  59.36   s |   N/A
+
+Recorded times are the average of 10 iterations, rounded to the nearest tenth.
